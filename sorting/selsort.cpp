@@ -5,21 +5,12 @@ void selection_sort(int arr[], int n);
 int main()
 {
     int n;
-    cout << "Enter number of elements in the array ";
-    cin >> n;
+    input_n(&n);
     int arr[n];
-    cout << "Enter " << n << " elements ";
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    cout << "UnSorted array is";
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
+    input_array(arr, n);
+    print_array("Unsorted array is ", arr, n);
     selection_sort(arr, n);
-    cout << "Sorted array is";
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
+    print_array("Sorted array is ", arr, n);
     return 0;
 }
 
