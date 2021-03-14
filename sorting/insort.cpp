@@ -1,4 +1,3 @@
-#include <iostream>
 #include "util.h"
 using namespace std;
 void insertion_sort(int arr[], int n);
