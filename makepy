@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+
+import re
+import os
+import glob
+
+listdir = os.listdir()
+
+
+srcdirs = listdir
+for srcdir in srcdirs:
+    if os.path.isdir(srcdir):
+        os.chdir(srcdir)
+        listfiles = os.listdir()
+        cfiles = glob.glob("*.cpp")
+        for cfile in cfiles:
+            output = cfile.split(".")[0]
+            print(f"compiling {cfile} in {srcdir} to ./build/{output}")
+            os.system(f"g++ {cfile} -o ../build/{output} -lm")
+        os.chdir("..")
