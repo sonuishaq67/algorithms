@@ -1,4 +1,4 @@
 compile:
-	python makepy
+	python3 makepy
 tests:
 	./tests.sh
