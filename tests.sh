@@ -40,5 +40,36 @@ check_simple_problems() {
     fi
 }
 
+check_graphs() {
+    input=""
+    sub_to_check="Adjacency list of vertex 0
+ head -> 1-> 4
+
+ Adjacency list of vertex 1
+ head -> 0-> 2-> 3-> 4
+
+ Adjacency list of vertex 2
+ head -> 1-> 3
+
+ Adjacency list of vertex 3
+ head -> 1-> 2-> 5
+
+ Adjacency list of vertex 4
+ head -> 0-> 1
+
+ Adjacency list of vertex 5
+ head -> 3"
+    for graphs in "simple_graph"; do
+        temp=$(echo $input | ./${graphs})
+        if [[ "$temp" == *"$sub_to_check"* ]]; then
+            echo "${graphs} pass"
+        else
+            echo "${graphs} failed"
+            exit 128
+        fi
+    done
+}
+
 check_sorts
 check_simple_problems
+check_graphs
